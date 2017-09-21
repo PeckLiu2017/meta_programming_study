@@ -19,7 +19,9 @@ end
 load 'events.rb'
 
 @events.each do |event|
+  p event
   @setups.each do |setup|
+    puts setup.class # => Proc
     setup.call
   end
   puts "ALERT: #{event[:description]} " if event[:condition].call
